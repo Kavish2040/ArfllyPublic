@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run prettier ||
+(
+   echo 'Prettier has failed'
+   false;
+)
+npm run lint ||
+(
+   echo 'Linting has failed'
+   false;
+)
+#npm run test ||
+#(
+#   echo 'Tests have failed'
+#   false;
+#)
+npm run build ||
+(
+    echo 'Build Failed, Check Types/Lint'
+    false;
+)
