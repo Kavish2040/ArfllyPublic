@@ -127,12 +127,12 @@ export function BrowseByTypeComponent({ onExploreClick }: { onExploreClick?: () 
     };
 
     const textContainerStyle: React.CSSProperties = {
-        width: '50%',
+        flex: 1,
         textAlign: 'left',
     };
 
     const headingStyle: React.CSSProperties = {
-        fontSize: '3rem',
+        fontSize: '3.5rem',
         fontWeight: 'bold',
         color: '#111827',
         lineHeight: 1.2,
@@ -152,7 +152,7 @@ export function BrowseByTypeComponent({ onExploreClick }: { onExploreClick?: () 
     };
 
     const accordionSectionStyle: React.CSSProperties = {
-        width: '50%',
+        flex: 1.5,
     };
 
     const accordionContainerStyle: React.CSSProperties = {
