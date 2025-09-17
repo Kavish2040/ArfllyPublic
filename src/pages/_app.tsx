@@ -90,7 +90,7 @@ export default function App(props: AppProps) {
                                     fontFamily: "'Playfair Display', serif",
                                     fontSize: theme.fontSizes.lg,
                                     fontWeight: 500,
-                                    color: theme.colors.gray[6],
+                                    color: theme.colors.gray[8],
                                     padding: `${theme.spacing.xs} ${theme.spacing.md}`,
                                     borderRadius: theme.radius.md,
                                     transition: 'color 0.2s ease, background-color 0.2s ease',
