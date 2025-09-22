@@ -1,5 +1,19 @@
 import { AnimatedHero, Text } from '@/components';
-import { BackgroundImage, Button, Center, Container, Grid, Group, Space, Stack, Title } from '@mantine/core';
+import {
+    BackgroundImage,
+    Box,
+    Button,
+    Center,
+    Container,
+    createStyles,
+    Grid,
+    Group,
+    Overlay,
+    rem,
+    Space,
+    Stack,
+    Title,
+} from '@mantine/core';
 import Image from 'next/image';
 import { ArrowNarrowRight } from 'tabler-icons-react';
 import { PriceRangeComponent } from './components';
@@ -17,7 +31,14 @@ const Home = () => {
             <Container size='xl' mt={SECTION_SPACING}>
                 <BrowseByTypeComponent onExploreClick={handleRouteToArt} />
             </Container>
-            <BackgroundImage src='./browseByPriceRangeBackground.png' mt={SECTION_SPACING}>
+            <Box
+                mt={SECTION_SPACING}
+                sx={{
+                    backgroundImage: 'url(./browseByPriceRangeBackground.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }}
+            >
                 <Container size='xl'>
                     <Grid pb={40} align='center'>
                         <Grid.Col xs={6}>
@@ -50,45 +71,79 @@ const Home = () => {
                         </Grid.Col>
                     </Grid>
                 </Container>
-            </BackgroundImage>
-            <Container size='xl'>
-                <Grid my={SECTION_SPACING} columns={100} gutter='xl' align='center'>
-                    <Grid.Col
-                        span={40}
+            </Box>
+            <Box my={rem(128)}>
+                <Container size="xl">
+                    <BackgroundImage
+                        src="/becomeASeller.png"
+                        radius={0}
                         sx={{
-                            background: 'linear-gradient(180deg, #0C0C0C 0%, #272626 100%)',
-                            borderRadius: '8px',
-                            color: 'white',
-                            padding: '4rem',
+                            height: rem(500),
+                            position: 'relative',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
+                            textAlign: 'center',
                         }}
                     >
-                        <Stack spacing='lg'>
-                            <Title>Become a seller</Title>
-                            <Text fz={18} fw={300}>
+                        <Overlay color="#000" opacity={0.5} zIndex={1} />
+                        <Stack
+                            sx={(theme) => ({
+                                position: 'relative',
+                                zIndex: 2,
+                                color: 'white',
+                                maxWidth: rem(600),
+                                padding: theme.spacing.xl,
+                                alignItems: 'center',
+                            })}
+                            spacing="lg"
+                        >
+                            <Title
+                                order={1}
+                                sx={(theme) => ({
+                                    fontFamily: 'Playfair Display, serif',
+                                    fontSize: rem(64),
+                                    fontWeight: 700,
+                                    color: theme.white,
+                                })}
+                            >
+                                Become a seller
+                            </Title>
+                            <Text
+                                size="lg"
+                                sx={(theme) => ({
+                                    fontFamily: 'Roboto, sans-serif',
+                                    fontWeight: 300,
+                                    color: theme.colors.gray[3],
+                                    lineHeight: 1.6,
+                                })}
+                            >
                                 Join our community of talented artists and galleries today and start turning your
-                                passion into profit!
+                                passion into profit! We provide the tools and exposure you need to connect with a
+                                global audience of art lovers.
                             </Text>
                             <Button
                                 onClick={handleRouteToSeller}
-                                variant='white'
+                                size="lg"
+                                radius="xl"
+                                variant="outline"
                                 rightIcon={<ArrowNarrowRight />}
-                                radius='xl'
-                                size='lg'
-                                mt='md'
-                                sx={{ alignSelf: 'flex-start' }}
+                                sx={(theme) => ({
+                                    marginTop: '1.5rem',
+                                    color: theme.white,
+                                    borderColor: theme.white,
+                                    '&:hover': {
+                                        backgroundColor: theme.white,
+                                        color: theme.black,
+                                    },
+                                })}
                             >
                                 Learn more
                             </Button>
                         </Stack>
-                    </Grid.Col>
-                    <Grid.Col span={60}>
-                        <Image src='/becomeASeller.png' alt='become a seller image' width={823} height={500} style={{ borderRadius: '8px' }}/>
-                    </Grid.Col>
-                </Grid>
-            </Container>
+                    </BackgroundImage>
+                </Container>
+            </Box>
         </Container>
     );
 };

@@ -132,7 +132,7 @@ export function BrowseByTypeComponent({ onExploreClick }: { onExploreClick?: () 
     };
 
     const headingStyle: React.CSSProperties = {
-        fontSize: '3.5rem',
+        fontSize: '3rem',
         fontWeight: 'bold',
         color: '#111827',
         lineHeight: 1.2,
@@ -145,6 +145,8 @@ export function BrowseByTypeComponent({ onExploreClick }: { onExploreClick?: () 
         fontSize: '1.125rem',
         color: '#4B5563',
         maxWidth: '36rem',
+        fontFamily: 'Roboto, sans-serif',
+        fontWeight: 300,
     };
 
     const buttonContainerStyle: React.CSSProperties = {
